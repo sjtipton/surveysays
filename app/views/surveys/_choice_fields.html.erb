@@ -4,5 +4,5 @@
   <%= f.check_box "correct" %>
   <%= f.label "correct", "Correct Choice?" %>
   <%= f.hidden_field :_destroy %>
-  | <%= link_to "Remove Choice", "#", class: "remove_fields" %>
+  | <%= f.link_to_remove "Remove Choice" %>
 </fieldset>

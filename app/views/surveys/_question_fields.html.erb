@@ -5,10 +5,10 @@
   <%= f.label :value, "Weight" %><br />
   <%= f.text_field :weight %><br />
   <%= f.hidden_field :_destroy %>
-  <%= link_to "Remove Question", "#", class: "remove_fields" %>
+  <%= f.link_to_remove "Remove Question" %>
 
   <%= f.fields_for :choices do |builder| %>
     <%= render "choice_fields", f: builder %>
   <% end %>
-  <%= link_to_add_fields "Add Choice", f, :choices %>
+  <%= f.link_to_add "Add Choice", :choices %>
 </fieldset>
