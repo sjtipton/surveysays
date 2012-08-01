@@ -3,4 +3,7 @@
   <%= f.text_field :content %><br />
   <%= f.check_box :_destroy %>
   <%= f.label :_destroy, "Remove Question" %>
+  <%= f.fields_for :choices do |builder| %>
+    <%= render "choice_fields", f: builder %>
+  <% end %>
 </fieldset>
