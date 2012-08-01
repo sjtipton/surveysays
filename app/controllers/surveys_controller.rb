@@ -10,13 +10,19 @@ class SurveysController < ApplicationController
   def new
     @survey = Survey.new
     @survey.questions << Question.new
-    @survey.questions.each { |q| q.choices << Choice.new }
+    @survey.questions.each do |q|
+      q.choices << Choice.new
+      q.weights << Weight.new
+    end
   end
 
   def create
     @survey = Survey.new(params[:survey])
     @survey.questions << Question.new(params[:question])
-    @survey.questions.each { |q| q.choices << Choice.new(params[:choice]) }
+    @survey.questions.each do |q|
+      q.choices << Choice.new(params[:choice])
+      q.weights << Weight.new(params[:weight])
+    end
 
     if @survey.save
       redirect_to @survey, notice: "Successfully created survey."
@@ -30,6 +36,7 @@ class SurveysController < ApplicationController
   end
 
   def update
+    puts params[:survey]
     @survey = Survey.find(params[:id])
 
     if @survey.update_attributes(params[:survey])
