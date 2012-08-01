@@ -1,6 +1,8 @@
 <fieldset>
   <%= f.label :content, "Choice" %>
   <%= f.text_field :content %>
+  <%= f.check_box "correct" %>
+  <%= f.label "correct", "Correct Choice?" %>
   <%= f.hidden_field :_destroy %>
-  <%= link_to "Remove Choice", "#", class: "remove_fields" %>
+  | <%= link_to "Remove Choice", "#", class: "remove_fields" %>
 </fieldset>
