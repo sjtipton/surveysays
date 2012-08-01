@@ -1,4 +1,4 @@
 class Choice < ActiveRecord::Base
-  attr_accessible :content, :correct, :question_id
+  attr_accessible :content, :correct
   belongs_to :question
 end

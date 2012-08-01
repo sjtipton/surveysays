@@ -1,5 +1,5 @@
 class Weight < ActiveRecord::Base
-  attr_accessible :question_id, :survey_id, :value
+  attr_accessible :value
   belongs_to :question
   belongs_to :survey
 end
