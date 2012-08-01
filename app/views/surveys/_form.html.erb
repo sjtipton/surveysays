@@ -19,7 +19,9 @@
   <%= f.fields_for :questions do |builder| %>
     <fieldset>
       <%= builder.label :content, "Question" %><br />
-      <%= builder.text_field :content %>
+      <%= builder.text_field :content %><br />
+      <%= builder.check_box :_destroy %>
+      <%= builder.label :_destroy, "Remove Question" %>
     </fieldset>
   <% end %>
 
