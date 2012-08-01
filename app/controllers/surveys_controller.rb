@@ -26,6 +26,7 @@ class SurveysController < ApplicationController
   def new
     @survey = Survey.new
     @survey.questions << Question.new
+    @survey.questions.each { |q| q.choices << Choice.new }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,6 +44,7 @@ class SurveysController < ApplicationController
   def create
     @survey = Survey.new(params[:survey])
     @survey.questions << Question.new(params[:question])
+    @survey.questions.each { |q| q.choices << Choice.new(params[:choice]) }
 
     respond_to do |format|
       if @survey.save
