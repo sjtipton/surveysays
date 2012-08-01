@@ -3,5 +3,6 @@ class Question < ActiveRecord::Base
   has_many :choices, dependent: :destroy
   has_many :weights, dependent: :destroy
   has_many :surveys, through: :weights
-  accepts_nested_attributes_for :choices, allow_destroy: true
+  accepts_nested_attributes_for :choices, reject_if: lambda { |a| a[:content].blank? },
+                                      allow_destroy: true
 end
