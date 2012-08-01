@@ -1,10 +1,17 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @survey.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @survey.name %>
-</p>
-
+<ol class="questions">
+<% @survey.questions.each do |question| %>
+  <li>
+    <%= question.content %>
+    <ol class="choices">
+      <% question.choices.each do |choice| %>
+        <li><%= choice.content %></li>
+      <% end %>
+    </ol>
+  </li>
+<% end %>
+</ol>
 
 <%= link_to 'Edit', edit_survey_path(@survey) %> |
-<%= link_to 'Back', surveys_path %>
+<%= link_to 'Back to Surveys', surveys_path %>
