@@ -1,4 +1,6 @@
 Surveysays::Application.routes.draw do
+  resources :weights
+
   resources :choices
 
   resources :questions
