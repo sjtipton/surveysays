@@ -4,9 +4,8 @@
   <%= f.hidden_field :_destroy %>
   <%= link_to "Remove Question", "#", class: "remove_fields" %>
 
-  <%= f.fields_for :weights do |builder| %>
-    <%= render "weight_fields", f: builder %>
-  <% end %>
+  <%= f.label :value, "Weight" %>
+  <%= f.text_field :weight %>
 
   <%= f.fields_for :choices do |builder| %>
     <%= render "choice_fields", f: builder %>
