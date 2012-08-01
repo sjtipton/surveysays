@@ -4,7 +4,7 @@
 <% @survey.questions.each do |question| %>
   <li>
     <%= question.content %>
-    (<%= "#{question.weights.first.value}/#{@survey.weights.sum(:value)}" %>)
+    (<%= "#{question.weight}/#{@survey.questions.sum(:weight)}" %>)
     <ol class="choices">
       <% question.choices.each do |choice| %>
         <li><%= choice.content %></li>
