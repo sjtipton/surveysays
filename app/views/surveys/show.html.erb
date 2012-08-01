@@ -7,7 +7,10 @@
     (<%= "#{question.weight}/#{@survey.questions.sum(:weight)}" %>)
     <ol class="choices">
       <% question.choices.each do |choice| %>
-        <li><%= choice.content %></li>
+        <li><%= choice.content %>
+        <%- if choice.correct %>
+          <b>(correct choice)</b>
+        <% end %></li>
       <% end %>
     </ol>
   </li>
