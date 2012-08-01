@@ -25,6 +25,7 @@ class SurveysController < ApplicationController
   # GET /surveys/new.json
   def new
     @survey = Survey.new
+    @survey.questions << Question.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,7 @@ class SurveysController < ApplicationController
   # POST /surveys.json
   def create
     @survey = Survey.new(params[:survey])
+    @survey.questions << Question.new(params[:question])
 
     respond_to do |format|
       if @survey.save
